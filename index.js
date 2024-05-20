@@ -3,10 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 
 // MongoDB Atlas connection URL
-const mongoURL =
-  "mongodb+srv://praveshmeena2892:vcdNBO1e0QbOlOD5@cluster0.jn6q6dr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURL = process.env.CONNECT_DB;
 
-// MongoDB database name
 const dbName = "database";
 
 // Connect to MongoDB Atlas
@@ -20,7 +18,6 @@ mongoose
     process.exit(1);
   });
 
-//  Mongoose schema
 const dataSchema = new mongoose.Schema({
   work_year: Number,
   experience_level: String,
@@ -47,8 +44,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Start the server
-const PORT = 5014;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
