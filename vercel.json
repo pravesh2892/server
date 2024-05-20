@@ -1,6 +1,4 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/(.*)", "use": "@vercel/node", "destination": "/index.js" }
-  ]
+  "rewrites": [{ "source": "/index.js", "destination": "/index.js" }]
 }
